@@ -1,0 +1,225 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url("/static/imagens/fundoUtentes.png") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Inter', sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 3.85%;
+  height: 100%;
+  background-color: #101D4B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-button {
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+outline: none;
+}
+
+
+
+.sidebar-button:hover img {
+filter: brightness(0.8);
+}
+
+.overlay_logo {
+position: fixed;
+top: 0;
+left: 0;
+width: 3.85%;
+height: 7.4%;
+background-color: rgba(11, 5, 44, 0.719); 
+align-items: center;
+justify-content: center;
+border-bottom: 4px solid rgb(44, 115, 209);
+}
+.list-icon, .profile-icon, .settings-icon {
+  left: 10%;
+  width: 80%;
+  height: 6%;
+}
+
+.logo {
+position: absolute;
+top: 10px;
+left: 10px;
+width: 80%;
+height: 80%;
+
+}
+
+.list-icon {
+position: absolute;
+top: 12%;
+}
+
+.profile-icon {
+position: absolute;
+bottom: 16%;
+}
+
+.settings-icon {
+position: absolute;
+bottom: 6%;
+}
+
+
+.get-button{
+  position: absolute;
+  width: 20%;
+  top: 20%;
+  margin: center;
+}
+
+
+/* Estilo do Container da Pesquisa */
+.search-container {
+  left: 12%;
+  top: 20%;
+  width: 40%;
+  height: 30%;
+  position: relative;
+  display: flex;
+  justify-content: center; 
+
+
+  
+
+}
+
+.search-container label {
+  color:#101D4B;
+  font-size: 48px;
+  margin-top: 5%;
+  width: 80%;
+  position:absolute;
+  
+
+}
+
+
+/* Estilo do Campo de Entrada */
+.search-input {
+  position:absolute;
+  width: 80%;
+  padding: 30px;
+  height: 20px;
+  border: 2px solid #101D4B;
+  border-radius: 30px;
+  bottom: 5%;
+  
+}
+
+/* Estilo do Botão de Pesquisa */
+.search-button{
+  
+  position: absolute;
+  right: 5%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  padding: 30px;
+  height: 20px;
+  bottom: 5%;
+}
+/* Estilo do Botão de Pesquisa */
+.search-button img{
+  position: absolute;
+  right: 5%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 30px;
+  height: 100%;
+  bottom: -30%;
+}
+
+/* Estilo do Botão Registar */
+.register-button {
+  position:absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px;
+  background-color: #101D4B;
+  border: none;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  border-radius: 100px;
+  width: 20%;
+  top: 40%;
+  left: 52%;
+  margin-bottom: 10%;
+  font-weight: bold;
+}
+
+.register-button:hover {
+  background-color: #5f657a9a;
+  }
+
+.register-button img {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.register-button span {
+  margin-top: 3x;
+  font-size: 18px;
+}
+
+/* Estilo da Tabela de Utentes */
+
+.caixa-tabela {
+  border:2px solid #101D4B;
+  border-radius: 30px;
+  width: 80%;
+  height: 45%;
+  margin-left: 13%;
+  margin-top: 12%;
+}
+
+.utentes-table-container {
+  width: 90%;
+  margin-left: 4%;
+  margin-top: 2%;
+ 
+}
+
+.utentes-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.utentes-table tr{
+border-radius: 20px; 
+}
+.utentes-table th,
+.utentes-table td {
+
+  padding: 15px;
+  text-align: left;
+  color:#101D4B;
+  font-size: 22px;
+  background-color:#b0b0b0;
+}
+
+.utentes-table th {
+  background-color: white;
+  color:#868686;
+  font-size: 22px;
+}

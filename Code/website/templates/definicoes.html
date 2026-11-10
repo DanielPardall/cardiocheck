@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardio Check - Definições</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/definicoes.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='imagens/favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="overlay_logo">
+      <img class="logo" src="{{ url_for('static', filename='imagens/logo.png') }}" alt="Logo">
+    </div>
+    <form action="/utentes" method="GET">
+      <button class="sidebar-button">
+          <img class="list-icon" src="{{ url_for('static', filename='imagens/lista.png') }}" alt="Lista">
+      </button>
+    </form>
+    <form action="/perfil" method="GET">
+      <button class="sidebar-button">
+          <img class="profile-icon" src="{{ url_for('static', filename='imagens/perfil.png') }}" alt="Perfil">
+      </button>
+    </form>
+    <form action="/definicoes" method="GET">
+      <button class="sidebar-button">
+          <img class="settings-icon" src="{{ url_for('static', filename='imagens/definicoes.png') }}" alt="Definições">
+      </button>
+    </form>
+  </div>
+  <div class="content">
+    <div class="alterar-pass">
+      <form action="/alterarPass" method="GET">
+        <button class="btn">Alterar Palavra-Passe</button>
+      </form>
+    </div>
+    <div class="gerir-conta">
+      <button class="btn">Encerrar Sessão</button>
+      <button class="btn btn-eliminar">Eliminar Conta</button>
+    </div>
+  </div>
+  <div id="logout-modal" class="modal">
+    <div class="modal-content">
+      <p class="texto-deseja"><b>Deseja encerrar sessão?</b></p>
+      <button id="confirm-logout-btn" class="btn-def sim-btn">Sim</button>
+      <button class="btn-def cancelar-btn">Cancelar</button>
+    </div>
+</div>
+<div id="delete-account-modal" class="modal">
+    <div class="modal-content">
+      <label class="texto-eliminar">Após eliminar a sua conta não será possível reverter a operação.</label>
+      <p class="texto-deseja">Deseja continuar?</p>
+      <button id="confirm-delete-btn" class="btn-def sim-btn">Sim</button>
+      <button class="btn-def cancelar-btn">Cancelar</button>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='javaScript/definicoes.js') }}"></script>
+</body>
+</html>

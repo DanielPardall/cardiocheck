@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardio Check</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/perfilUtente.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='imagens/favicon.ico') }}" type="image/x-icon">
+
+</head>
+<body>
+  <div class="sidebar">
+    <div class="overlay_logo">
+      <img class="logo" src="{{ url_for('static', filename='imagens/logo.png') }}" alt="Logo">
+    </div>
+    <form action="/utentes" method="GET">
+      <button class="sidebar-button">
+          <img class="list-icon" src="{{ url_for('static', filename='imagens/lista.png') }}" alt="Lista">
+      </button>
+    </form>
+
+    <form action="/perfil" method="GET">
+      <button class="sidebar-button">
+          <img class="profile-icon" src="{{ url_for('static', filename='imagens/perfil.png') }}" alt="Perfil">
+      </button>
+    </form>
+
+    <form action="/definicoes" method="GET">
+      <button class="sidebar-button">
+          <img class="settings-icon" src="{{ url_for('static', filename='imagens/definicoes.png') }}" alt="Definições">
+      </button>
+    </form>
+
+  </div>
+
+  <div class="titulo-utente">
+    <label class="nome-utente" id="info-utente">{{ utente.nome }} - {{ utente.numutente }}</label>
+  </div>
+
+  <div class="menu">
+     <button onclick="enableForm()" id="editar-button" type="button" class="btn-normal btn-editar">Editar</button>
+
+    
+    <button type="submit" id="save-button" style="display: none;" class="btn-diferente btn-editar-guardar">Guardar</button>
+      
+    <button type="button" id="cancel-button" style="display: none;" onclick="cancelEdit()" class="btn-normal btn-editar-cancelar">Cancelar Edição</button> 
+    
+
+    <button id="btn-eliminar" class="btn-normal btn-eliminar" onclick="openModal()">
+      <img class="img-eliminar" src="{{ url_for('static', filename='imagens/lixo.png') }}" alt="Eliminar">
+      Eliminar
+    </button>
+    
+
+    
+    <button id="prever-button" class="btn-diferente btn-prever" onclick="preverRisco()">Prever Risco</button>
+    
+    
+    <form action="/utentes" method="GET">
+        <button id="cancelar-button" class="btn-normal btn-cancelar">Cancelar</button>  
+    </form>
+  </div>
+  
+  <div id="eliminar-modal" class="modal-eliminar" style="display: none;">
+    <div class="modal-eliminar-content">
+        <p class="texto-deseja">Após eliminar um registo não será possível reverter a operação. Deseja continuar?</p>
+        <button id="confirm-delete-btn" class="btn-def sim-btn" onclick="eliminarRegisto()">Eliminar Registo</button>
+        <button id="cancelar-btn" class="btn-def cancelar-btn" onclick="fecharModal()">Cancelar</button>
+    </div>
+  </div>
+
+  
+  <!-- ru -> registo utente -->
+
+    <div id="ru-modal" class="modal"> 
+        <div class="modal-content">
+            <form id="pu-form">
+
+            <!-- <form id="pu-form" action="/editarperfilutente" method="POST">
+
+                <div class="form-item">
+                  <button onclick="enableForm()" type="button" id="editar-button" class="btn-normal btn-editar">Editar</button>
+                </div> -->
+
+                <div class="form-item">
+                <label for="nome-completo">Nome Completo</label>
+                <input type="text" id="nome-completo" name="nome-completo" value="{{ utente.nome }}" disabled required>
+                </div>
+
+                <div class="form-item">
+                <div class="inline-container">
+                    <div class="inline-block">
+                    <label for="data-nascimento">Data Nascimento</label>
+                    <input type="text" id="data-nascimento" name="data-nascimento" value="{{ utente.nascimento }}" disabled required>
+                    </div>
+                    <div class="inline-block">
+                    <label for="sexo">Sexo</label>
+                    <div class="sexo-container">
+                        <select id="sexo" name="sexo">
+                          <option value="{{ utente.sexo }}" disabled required></option>
+                          <option value="F">Feminino</option>
+                          <option value="M">Masculino</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="form-item">
+                <label for="nic">Número de Identificação Civil (NIC)</label>
+                <input type="text" id="nic" name="nic" value="{{ utente.nic }}" disabled required>
+                </div>
+                <div class="form-item">
+                <label for="num_saude">Número de Utente de Saúde</label>
+                <input type="text" id="num_saude" name="num_saude" value="{{ utente.numutente }}" disabled required>
+                </div>
+                <div class="form-item">
+                <label for="morada">Morada</label>
+                <input type="text" id="morada" name="morada" value="{{ utente.morada }}" disabled required>
+                </div>
+                <div class="form-item">
+                <label for="contacto">Número de Telemóvel</label>
+                <input type="tel" id="contacto" name="contacto" value="{{ utente.contacto }}" disabled required>
+                </div>
+                <div class="form-item">
+                <label for="email">Endereço de E-mail</label>
+                <input type="email" id="email" name="email" value="{{ utente.email }}" disabled required>
+                </div>
+                <div id="message-container" class="message" style="display:none;"></div>
+                <!--<div class="form-item">
+                  <button type="submit" id="save-button" style="display: none;" class="btn-diferente btn-guardar">Guardar</button>
+                </div>
+                <div class="form-item">
+                  <button type="button" id="cancel-button" style="display: none;" onclick="cancelEdit()" class="btn-normal btn-cancelar">Cancelar</button> 
+                </div>-->
+            </form>
+        </div>
+
+        <div class="historico-titulo">
+          <label class="nome-historico">Histórico</label>
+      </div>
+      <table border="1" class="tabela-historico">
+          <thead>
+              <tr>
+                  <th color="#101D4B"><b>Dados</b></th>
+                  <th color="#101D4B"><b>Previsão</b></th>
+                  
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Data</td>
+                  <td>Data 2</td>
+                 
+              </tr>
+              <tr>
+                  <td>Risco Baixo</td>
+                  <td>Risco Alto</td>
+  
+              </tr>
+          </tbody>
+      </table>
+    </div>
+
+    
+
+
+ 
+
+<script src="{{ url_for('static', filename='javaScript/perfilUtente.js') }}"></script>
+</body>
+</html>
+

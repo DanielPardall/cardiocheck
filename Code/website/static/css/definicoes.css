@@ -1,0 +1,199 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url("/static/imagens/fundoDefinicoes.png") no-repeat center center fixed;
+  background-size: contain;
+  font-family: 'Inter', sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5.2%;
+  height: 100%;
+  background-color: #101D4B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-button {
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+outline: none; 
+}
+
+.sidebar-button:hover img {
+filter: brightness(0.8); 
+}
+
+.overlay_logo {
+position: fixed;
+top: 0;
+left: 0;
+width: 5.2%;
+height: 10.5%;
+background-color:#010232; 
+align-items: center;
+justify-content: center;
+border-bottom: 2px solid #203A96;
+}
+.list-icon, .profile-icon, .settings-icon {
+  position: absolute;
+  left: 14.3%;
+  width: 70%;
+  height: auto;
+}
+
+.logo {
+position: absolute;
+top: 10px;
+left: 10px;
+width: 80%;
+height: auto;
+
+}
+
+.list-icon {
+position: absolute;
+top: 12%;
+}
+
+.profile-icon {
+position: absolute;
+bottom: 16%;
+}
+
+.settings-icon {
+position: absolute;
+bottom: 6%;
+}
+
+.pass {
+  position: fixed;
+  top: 20%;
+  width: 80%;
+  left:6%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: flex-start; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  border-bottom: 2px solid #D6D6D6;
+    
+}
+
+.content .btn {       /* botão "Encerrar Sessão"  */
+  position: absolute;
+  background-color: #fff;
+  color: #101D4B;
+  border: 2px solid #101D4B;
+  border-radius: 100px;
+  padding: 14px 34px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+  font-size: 150%;
+}
+
+.content .btn:hover {            
+  background-color: #d3d3d3;
+}
+  
+.content .alterar-pass .btn {
+  top: 26.5%;
+  left: 13.5%;
+}
+
+.content .gerir-conta .btn {
+  top: 53%; 
+  left: 13.5%; 
+}
+
+.content .gerir-conta .btn-eliminar {
+  background-color: #101D4B;
+  color: #fff;
+  left: 30%;
+  padding: 14px 34px;
+}
+
+.content .voltar .btn {
+  bottom: 6%;
+  left: 87%;
+}
+
+.content .gerir-conta .btn-eliminar:hover {
+  background-color: rgb(82, 100, 141);
+}
+
+.modal {
+  display: none; /* modais inicialmente escondidos */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); 
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.modal-content {
+  background-color: #07164A;
+  padding: 2% 3%;
+  border-radius: 40px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+
+.texto-eliminar{
+  width: 170%;
+  color: white;
+  font-size: 26px;
+  text-align: center;
+}
+
+.texto-deseja{
+  color: white;
+  font-size: 26px;
+  width: 140%;
+  text-align: center;
+
+}
+
+.btn-def{
+  color: white; 
+  background-color: #07164A;
+  border-radius: 60px;
+  border: 0;
+  width: 60%;
+  padding: 2% 4%;
+  font-size: 28px;
+}
+
+.btn-def:hover{
+  color: #07164A;
+  background-color: white;
+  
+}
+
+.sim-btn {
+  margin: 4% 0;
+}
+
+.modal.active {
+  display: flex; 
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardio Check</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/registoUtentes.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='imagens/favicon.ico') }}" type="image/x-icon">
+
+</head>
+<body>
+  <div class="sidebar">
+    <div class="overlay_logo">
+      <img class="logo" src="{{ url_for('static', filename='imagens/logo.png') }}" alt="Logo">
+    </div>
+    <form action="/utentes" method="GET">
+      <button class="sidebar-button">
+          <img class="list-icon" src="{{ url_for('static', filename='imagens/lista.png') }}" alt="Lista">
+      </button>
+    </form>
+
+    <form action="/perfil" method="GET">
+      <button class="sidebar-button">
+          <img class="profile-icon" src="{{ url_for('static', filename='imagens/perfil.png') }}" alt="Perfil">
+      </button>
+    </form>
+
+    <form action="/definicoes" method="GET">
+      <button class="sidebar-button">
+          <img class="settings-icon" src="{{ url_for('static', filename='imagens/definicoes.png') }}" alt="Definições">
+      </button>
+    </form>
+
+  </div>
+  
+  <!-- ru -> registo utente -->  
+  <div id="ru-modal" class="modal"> 
+    <div class="modal-content">
+      <form id="ru-form" action="/registoutente" method="POST">
+        <div class="form-item">
+          <label for="nome-completo">Nome Completo</label>
+          <input type="text" id="nome-completo" name="nome-completo" required>
+        </div>
+
+        <div class="form-item">
+          <div class="inline-container">
+            <div class="inline-block">
+              <label for="data-nascimento">Data Nascimento (AAAA-MM-DD)</label>
+              <input type="text" id="data-nascimento" name="data-nascimento" required>
+            </div>
+            <div class="inline-block">
+              <label for="sexo">Sexo</label>
+              <div class="sexo-container">
+                <select id="sexo" name="sexo">
+                  <option value="F">Feminino</option>
+                  <option value="M">Masculino</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-item">
+          <label for="nic">Número de Identificação Civil (NIC)</label>
+          <input type="text" id="nic" name="nic" required>
+        </div>
+        <div class="form-item">
+          <label for="num_saude">Número de Utente de Saúde</label>
+          <input type="text" id="num_saude" name="num_saude" required>
+        </div>
+        <div class="form-item">
+          <label for="morada">Morada</label>
+          <input type="text" id="morada" name="morada" required>
+        </div>
+        <div class="form-item">
+          <label for="contacto">Número de Telemóvel</label>
+          <input type="tel" id="contacto" name="contacto" required>
+        </div>
+        <div class="form-item">
+          <label for="email">Endereço de E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div id="message-container" class="message" style="display:none;"></div>
+        <div class="form-item">
+          <button type="submit" id="btn-submit" class="btn_menu btn_guardar" >Registar</button>
+        </div>
+      </form>
+      <form action="/utentes" method="GET">
+        <button class="btn_menu btn_voltar">Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+ 
+
+<script src="{{ url_for('static', filename='javaScript/registarUtentes.js') }}"></script>
+</body>
+</html>

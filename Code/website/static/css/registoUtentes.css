@@ -1,0 +1,212 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url("/static/imagens/fundoUtentes.png") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Inter', sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 3.85%;
+  height: 100%;
+  background-color: #101D4B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-button {
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+outline: none;
+}
+
+
+
+.sidebar-button:hover img {
+filter: brightness(0.8);
+}
+
+.overlay_logo {
+position: fixed;
+top: 0;
+left: 0;
+width: 3.85%;
+height: 7.4%;
+background-color: rgba(11, 5, 44, 0.719); 
+align-items: center;
+justify-content: center;
+border-bottom: 4px solid rgb(44, 115, 209);
+}
+.list-icon, .profile-icon, .settings-icon {
+  left: 10%;
+  width: 80%;
+  height: 6%;
+}
+
+.logo {
+position: absolute;
+top: 10px;
+left: 10px;
+width: 80%;
+height: 80%;
+
+}
+
+.list-icon {
+position: absolute;
+top: 12%;
+}
+
+.profile-icon {
+position: absolute;
+bottom: 16%;
+}
+
+.settings-icon {
+position: absolute;
+bottom: 6%;
+}
+
+
+
+.btn_menu{
+border-radius: 60px;
+background-color: #E0E0E0;
+border: 2px solid #000000;
+
+position: absolute;
+display: flex;
+justify-content: center; 
+align-items: center;
+font-size: 22px;
+transition: all 0.3s ease; 
+cursor: pointer;
+
+}
+
+
+.btn_menu:hover {
+background-color: #5f657a9a;
+}
+
+
+.btn_guardar {
+position: absolute;
+background-color: #101D4B;
+color: white;
+width: 15%;
+bottom: 15%;
+right: 0%;
+height: 6%;
+
+}
+
+.btn_voltar {
+position: absolute;
+background-color: white;
+color: #101D4B;
+border: 2px solid #101D4B;
+width: 13.5%;
+bottom: 8%;
+height: 6%;
+right: 5%;
+z-index: 2; 
+
+}
+
+
+
+
+/* -------------------------- Form -------------------------------------*/
+
+.modal {
+position: fixed;
+z-index: 1; 
+top: 2%;
+left: 5%;
+width: 90%; 
+height: 80%; 
+align-items: center;
+justify-content: center;
+}
+
+.modal-content {
+padding: 20px;
+height:110%;
+position: relative;
+; 
+}
+
+.form-item {
+margin: 2% 0;
+}
+
+input[type=text], input[type=email], input[type=tel] {
+width: 70%;
+padding: 10px;
+margin-top: 1%;
+border: 1px solid #101D4B;
+border-radius: 50px;
+display: block;
+}
+
+
+/* Estilizando a caixa de seleção */
+select {
+width: 52%;
+padding: 10px;
+font-size: 16px;
+border: 1px solid #101D4B;
+border-radius: 50px;
+}
+
+/* Estilo quando o usuário passa o mouse sobre a caixa de seleção */
+select:hover {
+border-color: #aaa;
+}
+
+/* Estilo para colocar os elementos "Data de Nascimento" e "Sexo" na mesma linha */
+.inline-container {
+display: flex; /* Define o contêiner como um flex container */
+}
+
+.inline-block {
+display: block;
+}
+
+/* Estilo para os campos "Data de Nascimento" e "Sexo" ficarem lado a lado */
+.inline-block {
+flex: 2; /* Define a largura dos elementos dentro do contêiner flexível */
+margin-right: 9%; /* Adiciona uma margem à direita para separar os elementos */
+}
+
+/* Estilo para posicionar a caixa de seleção abaixo do rótulo "Sexo" */
+.sexo-container {
+margin-top: 0.5%; /* Adiciona uma margem superior para separar a caixa de seleção do rótulo */
+}
+
+.message {
+text-align: center;
+width: 69%;
+top: 5%;
+border-radius: 5px;
+padding: 1% 1%;
+}
+.message.success {
+color: #3c763d;
+background-color: #dff0d8;
+border-color: #d6e9c6;
+}
+.message.error {
+color: #a94442;
+background-color: #f2dede;
+border-color: #ebccd1;
+}

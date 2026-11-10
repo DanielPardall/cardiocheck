@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardio Check</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='imagens/favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="overlay_logo">
+      <img class="logo" src="{{ url_for('static', filename='imagens/logo.png') }}" alt="Logo">
+    </div>
+    <form action="/utentes" method="GET">
+      <button class="sidebar-button">
+        <img class="list-icon" src="{{ url_for('static', filename='imagens/lista.png') }}" alt="Lista">
+      </button>
+    </form>
+    <form action="/perfil" method="GET">
+      <button class="sidebar-button">
+        <img class="profile-icon" src="{{ url_for('static', filename='imagens/perfil.png') }}" alt="Perfil">
+      </button>
+    </form>
+    <form action="/definicoes" method="GET">
+      <button class="sidebar-button">
+        <img class="settings-icon" src="{{ url_for('static', filename='imagens/definicoes.png') }}" alt="Definições">
+      </button>
+    </form>
+  </div>
+  
+  <!-- Botão Editar -->
+  <form action="/guardarPerfilUtilizador" method="POST">
+    <button class="edit-button" onclick="enableForm()" type="button">
+      <span>Editar</span>
+    </button>
+
+    <!-- Botão Guardar (escondido inicialmente) -->
+    <button type="submit" id="save-button" style="display: none;">Guardar</button>
+    <!-- Botão Cancelar (escondido inicialmente) -->
+    <button type="button" id="cancel-button" style="display: none;" onclick="cancelEdit()">Cancelar</button>    
+    
+    <script>
+      function enableForm() {
+        var nome = document.getElementById('nome');
+        var cedula = document.getElementById('cedula');
+        var contacto = document.getElementById('contacto');
+        var email = document.getElementById('email');
+        var editarBtn = document.querySelector('.edit-button');
+        var saveBtn = document.getElementById('save-button');
+        var cancelButton = document.getElementById('cancel-button');
+
+        // Habilitar campos para edição
+        nome.disabled = false;
+        nome.style.backgroundColor = "#ffffff";
+        contacto.disabled = false;
+        contacto.style.backgroundColor = "#ffffff";
+        email.disabled = false;
+        email.style.backgroundColor = "#ffffff";
+
+        // Alterar visibilidade dos botões
+        editarBtn.style.display = 'none';  // Esconde o botão Editar
+        saveBtn.style.display = 'block';   // Mostra o botão Guardar
+        cancelButton.style.display = 'block'; // Mostra o botão Cancelar
+      }
+
+      function cancelEdit() {
+          window.location.reload(); // Recarregar a página para cancelar mudanças
+      }
+  </script>
+
+    <!-- Tabela de Informações do Utilizador -->
+    <div class="table-container">
+      <table class="user-info-table">
+        <tr>
+          <th width="55%">Nome</th>
+          <th width="45%">Cédula Profissional</th>
+        </tr>
+        <tr>
+          <td><input type="text" id="nome" name="nome" value="{{ user.nome }}" disabled="true"></td>
+          <td><input type="text" id="cedula" name="cedula" value="{{ user.cedulapro }}" disabled="true"></td>
+        </tr>
+        <tr>
+          <th>Contacto</th>
+          <th>E-mail</th>
+        </tr>
+        <tr>
+          <td><input type="text" id="contacto" name="contacto" value="{{ user.contacto }}" disabled></td>
+          <td><input type="email" id="email" name="email" value="{{ user.email }}" disabled></td>
+        </tr>
+      </table>
+    </div>
+
+  </form>  
+
+</body>
+</html>
+

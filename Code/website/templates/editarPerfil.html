@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardio Check</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/editarPerfil.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='imagens/favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="overlay_logo">
+      <img class="logo" src="{{ url_for('static', filename='imagens/logo.png') }}" alt="Logo">
+    </div>
+    <form action="/utentes" method="GET">
+      <button class="sidebar-button">
+        <img class="list-icon" src="{{ url_for('static', filename='imagens/lista.png') }}" alt="Lista">
+      </button>
+    </form>
+    <form action="/perfil" method="GET">
+      <button class="sidebar-button">
+        <img class="profile-icon" src="{{ url_for('static', filename='imagens/perfil.png') }}" alt="Perfil">
+      </button>
+    </form>
+    <form action="/definicoes" method="GET">
+      <button class="sidebar-button">
+        <img class="settings-icon" src="{{ url_for('static', filename='imagens/definicoes.png') }}" alt="Definições">
+      </button>
+    </form>
+  </div>
+
+  <div id="ep-modal" class="modal"> 
+    <div class="modal-content">
+      <form id="ep-form" action="/guardarPerfilUtilizador" method="POST">
+
+        <div class="form-item">
+          <button class="edit-button" onclick="enableForm()" type="button">
+            <span>Editar</span>
+          </button>
+        </div>
+    
+        <div class="form-item-left-nome">
+          <label for="nome-completo">Nome Completo</label>
+          <input type="text" id="nome-completo" name="nome-completo" alue="{{ user.nome }}" disabled="true" required>
+        </div>
+        <div class="form-item-left-contacto">
+          <label for="contacto">Contacto</label>
+          <input type="tel" id="contacto" name="contacto" value="{{ user.contacto }}" disabled required>
+        </div>
+        <div class="form-item-right-cedula">
+          <label for="cedula">Cédula Profissional</label>
+          <input type="text" id="cedula" name="cedula" value="{{ user.cedulapro }}" disabled="true" required>
+        </div>
+        <div class="form-item-right-email">
+          <label for="email">Endereço de E-mail</label>
+          <input type="email" id="email" name="email" value="{{ user.email }}" disabled required>
+        </div>
+        <div id="message-container" class="message" style="display:none;"></div>
+        <div class="form-item">
+          <button type="submit" id="save-button" style="display: none;">Guardar</button>
+        </div>
+        <div class="form-item">
+          <button type="button" id="cancel-button" style="display: none;" onclick="cancelEdit()" >Cancelar</button> 
+        </div>   
+      </form>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='javaScript/editarPerfil.js') }}"></script>
+
+</body>
+</html>

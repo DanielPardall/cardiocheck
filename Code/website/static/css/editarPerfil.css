@@ -1,0 +1,252 @@
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: url("/static/imagens/fundoPerfilUtilizador.png") no-repeat center center fixed;
+    background-size: contain;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5.2%;
+    height: 100%;
+    background-color: #101D4B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sidebar-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none; 
+  }
+  
+  .sidebar-button:hover img {
+  filter: brightness(0.8); 
+  }
+  
+  .overlay_logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5.2%;
+  height: 10.5%;
+  background-color:#010232; 
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #203A96;
+  }
+  .list-icon, .profile-icon, .settings-icon {
+    position: absolute;
+    left: 14.3%;
+    width: 70%;
+    height: auto;
+  }
+  
+  .logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 80%;
+  height: auto;
+  
+  }
+  
+  .list-icon {
+  position: absolute;
+  top: 12%;
+  }
+  
+  .profile-icon {
+  position: absolute;
+  bottom: 16%;
+  }
+  
+  .settings-icon {
+  position: absolute;
+  bottom: 6%;
+  }
+  
+  
+  
+  
+  
+  /* Estilo do Botão Editar */
+  .edit-button {
+    position: absolute;
+    top: 2%;
+    left: 78%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 35px;
+    background-color: white;
+    border: 2px solid #101D4B;
+    color: #101D4B;
+    cursor: pointer;
+    border-radius: 100px;
+    width: 15%;
+    transition: background-color 0.3s ease;
+    font-size: 24px;
+    outline: none;
+  }
+  
+  .edit-button:hover {
+    background-color: #d3d3d3;
+  }
+  
+  /* Estilo do Botão Guardar */
+  #save-button {
+    top: 2%;
+    right:25%;
+    position: absolute;
+    padding: 10px 35px;
+    background-color: #101D4B;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    border-radius: 100px;
+    width: 15%;
+    transition: background-color 0.3s ease;
+    font-size: 24px;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  
+  #save-button:hover {
+    background-color: #d3d3d3;
+  }
+  
+  /* Estilo do Botão Cancelar */
+  #cancel-button {
+    position: absolute;
+    top: 2%;
+    left: 78%;
+    padding: 10px 35px;
+    background-color: white;
+    border: 2px solid #101D4B;
+    color: #101D4B;
+    cursor: pointer;
+    border-radius: 100px;
+    width: 15%;
+    transition: background-color 0.3s ease;
+    font-size: 24px;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  
+  #cancel-button:hover {
+    background-color: #d3d3d3;
+  }
+  
+  
+  
+  /* -------------------------- Form -------------------------------------*/
+  
+  .modal {
+    position: fixed;
+    z-index: 1000;
+    top: 35%;
+    left: 16%;
+    width: 80%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+  
+  .form-item-left-nome {
+    position: absolute;
+    color: #00305E;
+    font-size: 28px;
+    font-family: inter, sans-serif;
+    left: 10%;
+    top: 30%;
+  }
+  
+  .form-item-left-contacto {
+    position: absolute;
+    color: #00305E;
+    font-size: 28px;
+    font-family: inter, sans-serif;
+    left: 10%;
+    top: 60%;
+  }
+  
+  .form-item-right-cedula {
+    position: absolute;
+    color: #00305E;
+    font-size: 28px;
+    font-family: inter, sans-serif;
+    right: 15%;
+    top: 30%;
+  }
+  
+  .form-item-right-email {
+    position: absolute;
+    color: #00305E;
+    font-size: 28px;
+    font-family: inter, sans-serif;
+    right: 15%;
+    top: 60%;
+  }
+  
+  input[type=text],
+  input[type=tel],
+  input[type=email] {
+    width: 90%;
+    padding: 5%;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    border: 1px solid #00305E;
+    border-radius: 55px;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  /* Adicionando espaçamento entre os elementos */
+  .form-item-left label,
+  .form-item-right label {
+    margin-bottom: 4%;
+  }
+  
+  
+  .message {
+    text-align: center;
+    width: 75%;
+    margin-top: 34%;
+    margin-left: 9%;
+    border-radius: 5px;
+    padding: 1% 1%;
+    }
+    .message.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    }
+    .message.error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    }
+  

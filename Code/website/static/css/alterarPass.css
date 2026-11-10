@@ -1,0 +1,183 @@
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url("/static/imagens/fundoAlterarPass.png") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Inter', sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5.2%;
+  height: 100%;
+  background-color: #101D4B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-button {
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+outline: none; 
+}
+
+.sidebar-button:hover img {
+filter: brightness(0.8); 
+}
+
+.overlay_logo {
+position: fixed;
+top: 0;
+left: 0;
+width: 5.2%;
+height: 10.5%;
+background-color:#010232; 
+align-items: center;
+justify-content: center;
+border-bottom: 2px solid #203A96;
+}
+.list-icon, .profile-icon, .settings-icon {
+  position: absolute;
+  left: 14.3%;
+  width: 70%;
+  height: auto;
+}
+
+.logo {
+position: absolute;
+top: 10px;
+left: 10px;
+width: 80%;
+height: auto;
+}
+
+.list-icon {
+position: absolute;
+top: 12%;
+}
+
+.profile-icon {
+position: absolute;
+bottom: 16%;
+}
+
+.settings-icon {
+position: absolute;
+bottom: 6%;
+}
+
+.texto {
+margin-bottom: 1%; 
+font-size: 32px;
+width: 20%;
+height: 10%;
+}
+
+.btn_menu {
+  border-radius: 100px;
+  padding: 16px 70px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn_menu:hover {
+  background-color: rgb(82, 100, 141);
+}
+
+
+.btn_confirmar {
+  color: white;
+  background-color: #101D4B;
+  border: 2px solid #101D4B;
+  bottom: 3%;
+  right: 2.2%;
+}
+
+.btn_cancelar {
+  width: 14%;
+  right: 4%;
+  bottom: 10%;
+  background-color: white;
+  color: #101D4B;
+  border: 2px solid #101D4B;
+}
+
+.btn_cancelar:hover {
+  background-color: #d3d3d3;
+}
+
+/* -------------------------- Form -------------------------------------*/
+
+.modal {
+position: fixed;
+z-index: 1000; 
+top: 15%;
+left: 8%;
+width: 90%; 
+height: 70%; 
+align-items: center;
+justify-content: center;
+}
+
+.modal-content {
+padding: 20px;
+position: relative;
+}
+
+.form-item {
+color:#00305E;
+margin: 4% 0;
+font-size: 32px;
+font-family: inter, sans-serif;
+}
+
+input[type=password] {
+
+width: 70%;
+padding: 1%;
+margin-top: 1%;
+border: 1px solid #00305E;
+border-radius: 55px;
+display: block;
+}
+
+.password-requirements {
+  font-size: 22px;
+  padding-left: 1%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5%;
+}
+
+.message {
+text-align: center;
+width: 69%;
+top: 5%;
+border-radius: 5px;
+padding: 1% 1%;
+}
+.message.success {
+color: #3c763d;
+background-color: #dff0d8;
+border-color: #d6e9c6;
+}
+.message.error {
+color: #a94442;
+background-color: #f2dede;
+border-color: #ebccd1;
+}

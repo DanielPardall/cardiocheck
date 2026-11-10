@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardio Check</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/utentes.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='imagens/favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="overlay_logo">
+      <img class="logo" src="{{ url_for('static', filename='imagens/logo.png') }}" alt="Logo">
+    </div>
+    <form action="/utentes" method="GET">
+      <button class="sidebar-button">
+        <img class="list-icon" src="{{ url_for('static', filename='imagens/lista.png') }}" alt="Lista">
+      </button>
+    </form>
+
+    <form action="/perfil" method="GET">
+      <button class="sidebar-button">
+        <img class="profile-icon" src="{{ url_for('static', filename='imagens/perfil.png') }}" alt="Perfil">
+      </button>
+    </form>
+
+    <form action="/definicoes" method="GET">
+      <button class="sidebar-button">
+        <img class="settings-icon" src="{{ url_for('static', filename='imagens/definicoes.png') }}" alt="Definições">
+      </button>
+    </form>
+  </div>
+
+ 
+
+ <!-- Campo de Pesquisa -->
+  <form id="searchForm" action="/pesquisar-utente" method="POST" class="search-container">
+    <label>Procurar Utente</label>
+    <input type="text" id="numutente" placeholder="Digite o número do utente..." class="search-input">
+    <button type="submit" class="search-button">
+      <img src="{{ url_for('static', filename='imagens/lupa.png') }}">
+    </button>
+  </form>
+
+  <div class="caixa-tabela">
+    <div class="utentes-table-container">
+      <table id="resultsTable" style="display:none;" class="utentes-table">
+          <tr>
+              <th>Nome</th>
+              <th>Número de Utente de Saúde</th>
+              <th>Ação</th>
+          </tr>
+          <tr id="resultRow">
+              <!-- Os resultados serão inseridos aqui -->
+          </tr>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- Botão Procurar Utente -->
+  <form action="/registoutente" method="GET">
+    <button class="register-button">
+      <img src="{{ url_for('static', filename='imagens/add_icon.png') }}">
+      <span>Registar Utente</span>
+    </button>
+  </form>
+
+  
+
+ 
+  
+
+  
+<script src="{{ url_for('static', filename='javaScript/procurarUtente.js') }}"></script>
+</body>
+</html>

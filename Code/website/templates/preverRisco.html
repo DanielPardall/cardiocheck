@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardio Check - Definições</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/preverRisco.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='imagens/favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="overlay_logo">
+      <img class="logo" src="{{ url_for('static', filename='imagens/logo.png') }}" alt="Logo">
+    </div>
+    <form action="/utentes" method="GET">
+      <button class="sidebar-button">
+          <img class="list-icon" src="{{ url_for('static', filename='imagens/lista.png') }}" alt="Lista">
+      </button>
+    </form>
+    <form action="/perfil" method="GET">
+      <button class="sidebar-button">
+          <img class="profile-icon" src="{{ url_for('static', filename='imagens/perfil.png') }}" alt="Perfil">
+      </button>
+    </form>
+    <form action="/definicoes" method="GET">
+      <button class="sidebar-button">
+          <img class="settings-icon" src="{{ url_for('static', filename='imagens/definicoes.png') }}" alt="Definições">
+      </button>
+    </form>
+  </div>
+
+  <div class="titulo-utente">
+    <label class="nome-utente" id="info-utente">{{ utente.nome }} - {{ utente.numutente }}</label>
+  </div>
+  
+  <div class="main-container">
+    <div class="form-container">
+        <form id="risk-form">
+            <!-- Idade -->
+            <div class="input-group">
+                <label for="idade">Idade (anos):</label>
+                <div class="range-values">
+                    <span>0</span>
+                    <input type="range" id="idade" name="idade" min="0" max="130" value="20" step="1" oninput="showValue('idade', 'idade-value')">
+                    <span>130</span>
+                </div>
+                <span id="idade-value" class="range-output">20</span>
+            </div>
+
+            <!-- Sexo -->
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo">
+                <option value="1">Masculino</option>
+                <option value="0">Feminino</option>
+            </select>
+
+            <!-- Tipo de dor no peito -->
+            <label for="tipo-dor-peito">Tipo de dor no peito:</label>
+            <select id="tipo-dor-peito" name="tipo_dor_peito">
+                <!-- Substitua os valores e textos pelas opções corretas -->
+                <option value="0">Angina Típica</option>
+                <option value="1">Angina Atípica</option>
+                <option value="2">Dor não Anginal</option>
+                <option value="3">Assintomático</option>
+            </select>
+
+            <!-- Pressão Arterial -->
+            <div class="input-group">
+                <label for="pressao-arterial">Pressão Arterial Sistólica (mmHG):</label>
+                <div class="range-values">
+                    <span>0</span>
+                    <input type="range" id="pressao-arterial" name="pressao_arterial" min="0" max="200" value="80" step="1" oninput="showValue('pressao-arterial', 'pressao-arterial-value')">
+                    <span>200</span>
+                </div>
+                <span id="pressao-arterial-value" class="range-output">80</span>
+            </div>
+
+            <!-- Colesterol -->
+            <div class="input-group">
+                <label for="colesterol">Colesterol (mg/dL):</label>
+                <div class="range-values">
+                    <span>0</span>
+                    <input type="range" id="colesterol" name="colesterol" min="0" max="300" value="210" step="1" oninput="showValue('colesterol', 'colesterol-value')">
+                    <span>300</span>
+                </div>
+                <span id="colesterol-value" class="range-output">210</span>
+            </div>
+
+            <!-- Glicemia em jejum -->
+            <label for="glicemia-jejum">Glicemia em jejum:</label>
+            <select id="glicemia-jejum" name="glicemia_jejum">
+                <!-- Substitua os valores e textos pelas opções corretas -->
+                <option value="1">Acima de 120 mg/dL</option>
+                <option value="0">Abaixo ou igual que 120 mg/dL</option>
+            </select>
+
+            <!-- Eletrocardiograma -->
+            <label for="eletrocardiograma">Eletrocardiograma:</label>
+            <select id="eletrocardiograma" name="eletrocardiograma">
+                <option value="0">Normal</option>
+                <option value="1">Anormal</option>
+                <option value="2">Possível hipertrofia no ventrículo esquerdo</option>
+            </select>
+
+            <!-- Frequência cardíaca máxima atingida -->
+            <div class="input-group">
+                <label for="freq-cardiaca-max">Frequência cardíaca máxima atingida (bpm):</label>
+                <div class="range-values">
+                    <span>0</span>
+                    <input type="range" id="freq-cardiaca-max" name="freq_cardiaca_max" min="0" max="210" value="90" step="1" oninput="showValue('freq-cardiaca-max', 'freq-cardiaca-max-value')">
+                    <span>210</span>
+                </div>
+                <span id="freq-cardiaca-max-value" class="range-output">90</span>
+            </div>
+
+            <!-- Angina induzida por exercício -->
+            <label for="angina-induzida">Angina induzida por exercício:</label>
+            <select id="angina-induzida" name="angina_induzida">
+                <option value="1">Sim</option>
+                <option value="0">Não</option>
+            </select>
+
+            <!-- Depressão do segmento ST -->
+            <div class="input-group">
+                <label for="depressao-st">Depressão do segmento ST induzida pelo exercício em relação ao repouso (mm):</label>
+                <div class="range-values">
+                    <span>0</span>
+                    <input type="range" id="depressao-st" name="depressao_st" min="0" max="7" value="3" step="1" oninput="showValue('depressao-st', 'depressao-st-value')">
+                    <span>7</span>
+                </div>
+                <span id="depressao-st-value" class="range-output">3</span>
+            </div>
+
+            <!-- Inclinação do segmento ST no pico do exercício -->
+            <label for="inclinacao-st">Inclinação do segmento ST no pico do exercício:</label>
+            <select id="inclinacao-st" name="inclinacao_st">
+                <option value="0">Sem inclinação</option>
+                <option value="1">Inclinação mínima</option>
+                <option value="2">Inclinação acentuada</option>
+            </select>
+
+            <!-- Número de grandes vasos coloridos por fluoroscopia -->
+            <div class="input-group">
+                <label for="vasos-fluoroscopia">Número de grandes vasos coloridos por fluoroscopia:</label>
+                <div class="range-values">
+                    <span>0</span>
+                    <input type="range" id="vasos-fluoroscopia" name="vasos_fluoroscopia" min="0" max="4" value="2" step="1" oninput="showValue('vasos-fluoroscopia', 'vasos-fluoroscopia-value')">
+                    <span>4</span>
+                </div>
+                <span id="vasos-fluoroscopia-value" class="range-output">2</span>
+            </div>
+
+            <!-- Talassemia -->
+            <label for="talassemia">Talassemia:</label>
+            <select id="talassemia" name="talassemia">
+                <option value="0">Nulo</option>
+                <option value="1">Defeito corrigido</option>
+                <option value="2">Normal</option>
+                <option value="3">Defeito reversível</option>
+            </select>
+            <!-- Botão para calcular risco -->
+            <div class="action-container">
+                <button type="submit" id="calcular-risco-btn">Calcular Risco</button>
+                <div id="risk-message" class="message"></div>
+            </div>
+        </form>
+    </div>
+    <div class="buttons-container">
+        <button id="save-result" class="btn-guardar" onclick="saveResult()">Guardar Resultado</button>
+        <button id="go-back" class="btn-back" onclick="goBack()">Cancelar</button>
+    </div>
+    <script>
+        function showValue(sliderId, outputId) {
+            var slider = document.getElementById(sliderId);
+            var output = document.getElementById(outputId);
+            output.textContent = slider.value;
+
+            var percent = (slider.value - slider.min) / (slider.max - slider.min);
+            var sliderWidth = slider.offsetWidth;
+            var thumbWidth = 15; 
+
+            var valuePosition = (percent * (sliderWidth - thumbWidth)) + (thumbWidth / 2);
+
+            output.style.left = `${valuePosition}px`;
+            output.style.transform = 'translateX(-50%)';
+        }   
+        document.addEventListener('DOMContentLoaded', function () {
+          showValue('idade', 'idade-value');
+          showValue('pressao-arterial', 'pressao-arterial-value');
+          showValue('colesterol', 'colesterol-value');
+          showValue('freq-cardiaca-max', 'freq-cardiaca-max-value');
+          showValue('depressao-st', 'depressao-st-value');
+          showValue('vasos-fluoroscopia', 'vasos-fluoroscopia-value');
+        });
+    </script>
+    <script>
+        var lastPrediction = null;
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('risk-form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); 
+    
+                var formData = {
+                    age: parseInt(document.getElementById('idade').value),
+                    sex: parseInt(document.getElementById('sexo').value),
+                    cp: parseInt(document.getElementById('tipo-dor-peito').value),
+                    trtbps: parseInt(document.getElementById('pressao-arterial').value),
+                    chol: parseInt(document.getElementById('colesterol').value),
+                    fbs: parseInt(document.getElementById('glicemia-jejum').value),
+                    restecg: parseInt(document.getElementById('eletrocardiograma').value),
+                    thalachh: parseInt(document.getElementById('freq-cardiaca-max').value),
+                    exng: parseInt(document.getElementById('angina-induzida').value),
+                    oldpeak: parseFloat(document.getElementById('depressao-st').value),
+                    slp: parseInt(document.getElementById('inclinacao-st').value),
+                    caa: parseInt(document.getElementById('vasos-fluoroscopia').value),
+                    thall: parseInt(document.getElementById('talassemia').value)
+                };
+        
+                console.log(formData); // Para debug
+
+                const messageElement = document.getElementById('risk-message');
+                messageElement.style.display = 'none'; 
+                messageElement.innerHTML = ''; 
+    
+                fetch('/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const messageElement = document.getElementById('risk-message');
+                    messageElement.style.display = 'block'; 
+                    if (data.prediction === 1) {
+                        messageElement.innerHTML = "Alto Risco de Doença Cardíaca";
+                        messageElement.className = 'message error';
+                        lastPrediction = "Alto Risco de Doença Cardíaca";
+                    } else {
+                        messageElement.innerHTML = "Baixo Risco de Doença Cardíaca";
+                        messageElement.className = 'message success';
+                        lastPrediction = "Baixo Risco de Doença Cardíaca";
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao enviar dados:', error);
+                    messageElement.innerHTML = 'Erro ao processar a previsão.';
+                    messageElement.className = 'message error';
+                    messageElement.style.display = 'block';  
+                });      
+            });
+        });
+        function saveResult() {
+            if (!lastPrediction) {
+                alert("Nenhuma previsão foi realizada ainda.");
+                return;
+            }
+
+            fetch('/save_prediction', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 
+                    numUtente: 1,  
+                    previsao: lastPrediction
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                console.error('Erro ao guardar a previsão:', error);
+                alert("Erro ao guardar a previsão.");
+            });
+        }
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</html>
+

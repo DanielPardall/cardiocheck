@@ -1,0 +1,29 @@
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      FLASK_APP: main.py
+      FLASK_ENV: development
+      DATABASE_URL: postgresql://postgres:password@db:5432/SistemaDeSaude
+    volumes:
+      - .:/app
+
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: SistemaDeSaude
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./instance/database.sql:/docker-entrypoint-initdb.d/database.sql
+      # Mapeia o arquivo database.sql para ser executado quando o container do Postgres for iniciado
+
+volumes:
+  postgres_data:

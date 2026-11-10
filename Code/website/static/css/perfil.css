@@ -1,0 +1,183 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url("/static/imagens/fundoPerfilUtilizador.png") no-repeat center center fixed;
+  background-size: contain;
+  font-family: 'Inter', sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5.2%;
+  height: 100%;
+  background-color: #101D4B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-button {
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+outline: none; 
+}
+
+.sidebar-button:hover img {
+filter: brightness(0.8); 
+}
+
+.overlay_logo {
+position: fixed;
+top: 0;
+left: 0;
+width: 5.2%;
+height: 10.5%;
+background-color:#010232; 
+align-items: center;
+justify-content: center;
+border-bottom: 2px solid #203A96;
+}
+.list-icon, .profile-icon, .settings-icon {
+  position: absolute;
+  left: 14.3%;
+  width: 70%;
+  height: auto;
+}
+
+.logo {
+position: absolute;
+top: 10px;
+left: 10px;
+width: 80%;
+height: auto;
+
+}
+
+.list-icon {
+position: absolute;
+top: 12%;
+}
+
+.profile-icon {
+position: absolute;
+bottom: 16%;
+}
+
+.settings-icon {
+position: absolute;
+bottom: 6%;
+}
+
+/* Estilo do Botão Editar */
+.edit-button {
+  position: absolute;
+  top: 35%;
+  left: 78%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 34px;
+  background-color: white;
+  border: 2px solid #101D4B;
+  color: #101D4B;
+  cursor: pointer;
+  border-radius: 100px;
+  width: 15%;
+  transition: background-color 0.3s ease;
+  outline: none;
+  font-size: 150%;
+}
+
+.edit-button:hover {
+  background-color: #d3d3d3;
+}
+
+/* Estilo do Botão Guardar */
+#save-button {    /* no que têm # (ID) o display, justify-content e o align-itens não têm efeito */
+  position: absolute;
+  top: 35%;
+  left: 60%;
+  padding: 14px 34px;
+  background-color: #101D4B;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  border-radius: 100px;
+  width: 15%;
+  transition: background-color 0.3s ease;
+  outline: none;
+  font-size: 150%;
+}
+
+#save-button:hover {
+  background-color: rgb(82, 100, 141);
+}
+
+/* Estilo do Botão Cancelar */
+#cancel-button {
+  position: absolute;
+  top: 35%;
+  left: 78%;
+  padding: 14px 34px;
+  background-color: white;
+  border: 2px solid #101D4B;
+  color: #101D4B;
+  cursor: pointer;
+  border-radius: 100px;
+  width: 15%;
+  transition: background-color 0.3s ease;
+  outline: none;
+  font-size: 150%;
+}
+
+#cancel-button:hover {
+  background-color: #d3d3d3;
+}
+
+/* Estilo da Tabela de Informações do Utilizador */
+.user-info-table {
+  width: 100%;
+}
+
+.user-info-table th, .user-info-table td {
+  text-align: left;
+  padding: 8px;
+}
+
+.user-info-table th {
+  color: #101D4B; /* Cor do texto das legendas */
+}
+
+.user-info-table input {
+  border: none;
+  background: none;
+  color: #888888; /* Cor do texto dentro dos campos de entrada */
+  width: 100%;
+  display: block;
+}
+
+.user-info-table th, .user-info-table td {
+  text-align: left; /* Alinha o texto à esquerda */
+  padding: 8px; /* Espaço interno para texto dentro das células */
+}
+
+.user-info-table th:first-child, .user-info-table td:first-child {
+  padding-right: 100px; /* Aumenta o padding à direita da primeira coluna */
+}
+
+.user-info-table th:last-child, .user-info-table td:last-child {
+  padding-left: 100px; /* Aumenta o padding à esquerda da segunda coluna */
+}
+
+.table-container {
+  position: absolute;
+  top: 60%;
+  left: 26%;
+  width: 60%;
+}
