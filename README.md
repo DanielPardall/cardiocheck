@@ -124,4 +124,4 @@ The [`Testing/`](Testing/) directory contains manual test specifications coverin
 - Guilherme Cardoso
 - Íris Sousa
 
-This repository represents collaborative academic work. Individual contributions should be described separately when presenting it in a personal portfolio.
+This repository represents collaborative academic work.
